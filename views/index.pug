@@ -1,0 +1,29 @@
+extends base
+
+block content
+    .container
+        .row
+            .col-md-12.pt-5
+                .text-center 
+                    h1 TODO APP
+
+                form(action='/' method='post')
+                    .input-group.mb-3
+                        input.form-control(type='text' placeholder='Enter todo here!' name='name')
+                        .input-group-append
+                            button.btn.btn-success(type='submit') Add Todo
+
+               
+
+
+               
+                table
+                    tbody
+                        each todo in todos
+                            tr
+                                td
+                                    form(action=`/${todo._id}?_method=DELETE` method='POST')
+                                        button.btn.btn-danger(type='submit')
+                                            i.fa.fa-times(aria-hidden='true')
+                                td= todo.name 
+
